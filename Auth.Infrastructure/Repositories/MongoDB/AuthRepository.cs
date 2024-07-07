@@ -18,7 +18,6 @@ namespace Auth.Infrastructure.Repositories.MongoDB
         private readonly IOptions<MongoDbSettings> _settings;
         public AuthRepository(IOptions<MongoDbSettings> settings)
         {
-            BsonDefaults.GuidRepresentationMode = GuidRepresentationMode.V3;
             BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
             _settings = settings;
         }
